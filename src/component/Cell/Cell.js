@@ -5,8 +5,6 @@ import Button from '../Button/Button';
 
 export default class Cell extends Component {
 
-
-
     state = {
         showButton: false
     }
@@ -27,9 +25,10 @@ export default class Cell extends Component {
         return (
             <div 
                 className="container" 
-                data-test="container"
-                onMouseOver={this.onOverImg}
-                onMouseLeave={this.onLeaveImg}
+                >
+                <div style={{ width:"180px"}}
+                    onMouseOver={this.onOverImg}
+                    onMouseLeave={this.onLeaveImg}
                 >
                     <MovieCell 
                     title={title} 
@@ -41,13 +40,14 @@ export default class Cell extends Component {
                     />
 
                     {this.state.showButton ? 
-                    <Button 
-                        data-test='button' 
+                    <Button  
                         id={id} 
                         catlog={catlog} 
                     /> 
                     : null } 
+                </div>
+                <p className="description">{title}</p> 
             </div>
-            )
+        )
     }
 }

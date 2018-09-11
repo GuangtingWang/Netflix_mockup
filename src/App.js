@@ -1,3 +1,20 @@
+/**
+ * ---------  Updates --------- 
+ * 1. Use "min-height" instead of "height" in css file to solve the background issue.
+ * 2. Modify Reducer with type = REMOVE_ITEM. Now when item is deleted, it goes back to recommendations.
+ * 3. Use onMouseOver instead of onMouseEnter Synthetic Event for better user experience.
+ * 4. Add a server to get mockup data from backend.
+ * 5. Split MovieCell Component and Buttom Component and Create Cell Component to make them work together.
+ * 6. Change some styles 
+ * 
+ * --------- Notes --------- 
+ * Please run the following command to start the code:
+ * npm run server
+ * npm start
+ */
+
+
+
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
@@ -30,19 +47,23 @@ class App extends Component {
 
         {this.props.lists.length !== 0 ? <h2>My List</h2> : null}
 
-        <div className="row">
+        <ul className="item-list">
           {this.props.lists.map(list => (
-              <Cell catlog='mylist' id={list.id} key={list.id} imgUrl={list.img} title={list.title} />
+            <li key={list.id}>
+              <Cell catlog='mylist' id={list.id} imgUrl={list.img} title={list.title} />
+            </li>
           ))}        
-        </div>
+        </ul>
 
         {this.props.recommendations.length !== 0 ? <h2>Recommendations</h2> : null}
 
-        <div className="row">
+        <ul className="item-list">
           {this.props.recommendations.map(list => (
-              <Cell data-test='cell' catlog='recom' id={list.id} key={list.id} imgUrl={list.img} title={list.title} />
+            <li key={list.id}>
+              <Cell data-test='cell' catlog='recom' id={list.id} imgUrl={list.img} title={list.title} />
+            </li>
           ))}        
-        </div>
+        </ul>
         
         {this.props.lists.length !== 0 ? 
             <h2 className='watchlist'>You are now watching: {this.props.lists.map(list =>list.title).join(', ')}</h2>

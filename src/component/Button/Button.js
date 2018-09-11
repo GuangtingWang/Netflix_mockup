@@ -9,7 +9,7 @@ class Button extends Component {
     const {catlog,id} = this.props;
     return (
       <div className='button'>
-        <button
+        <button className={catlog === 'mylist' ? 'button1' : 'button2'}
           onClick={ () => this.props.handleItem(catlog,id) }
         >
           {catlog === 'mylist' ? 'Remove' : 'Add'}

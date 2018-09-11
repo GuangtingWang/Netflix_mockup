@@ -7,8 +7,7 @@ const reducer = (state, action) => {
                 ...state,
                 mylist:action.mylist,
                 recommendations:action.recommendations
-            }
-                
+            }  
         case actionTypes.REMOVE_ITEM:
             let newMylist = [...state.mylist];
             let addToRecommendations = newMylist.filter(list => list.id===action.payload);

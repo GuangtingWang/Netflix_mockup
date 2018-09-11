@@ -6,7 +6,7 @@ export default class MovieCell extends Component {
 
 
   render() {
-    const { title, imgUrl }  = this.props;
+    const { imgUrl }  = this.props;
     return (
       <div>
         <div className='cell' data-test="cell">
@@ -17,7 +17,6 @@ export default class MovieCell extends Component {
                 src={imgUrl}   
             />
         </div>
-        <p data-test='description' className="description">{title}</p> 
       </div>
     )
   }
