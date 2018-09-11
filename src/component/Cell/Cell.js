@@ -14,7 +14,6 @@ export default class Cell extends Component {
     }
 
     onLeaveImg = () => {
-        console.log('haha');
         this.setState({showButton:false})
     }
 
